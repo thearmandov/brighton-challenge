@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: brighton-nodejs-challenge
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: brighton-nodejs-challenge
+  template:
+    metadata:
+      labels:
+        app: brighton-nodejs-challenge
+    spec:
+      containers:
+        - name: brighton-nodejs-challenge
+          image: node:18-alpine
+          ports:
+            - containerPort: 3000
+          env:
+            - name: FEED_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: app-config
+                  key: feed-url

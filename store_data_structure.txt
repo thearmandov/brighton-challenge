@@ -1,0 +1,55 @@
+Stores Table
+    storeId (Primary Key)
+    name
+    name2
+    typeId
+    hours
+    seasonalHoursDays
+    seasonalHours
+// 
+    facebookUrl
+    videoUrl
+    viewstoreUrl
+    mainImageUrl
+    viewstoreUrl
+    alternateImageUrl1
+    alternateImageUrl2
+
+Contact Table [1-1 relationship w/ Store->storeId]
+    contactId (Primary Key)
+    storeId (Foreign Key referencing storeId)
+    contactTitle
+    contactFirst
+    contactLast
+    phone
+    email
+
+Location Table [1-1 relationship w/ Store->storeId]
+    locationId (Primary Key)
+    storeId (Foreign Key - References store->storeId)
+    address1
+    address2
+    city
+    state
+    zip
+    country
+    latitude
+    longitude
+
+
+Store Type Table [1-1 relationship w/ Store->storeId]
+    typeId (Primary Key) 
+    typeName
+
+// 
+Media Table [1-Many relationship w/ Store->storeId]
+    mediaId (Primary Key)
+    storeId (Foreign Key - References store->storeId)
+    mediaType <image, altImage, video>
+    mediaUrl
+
+Social Media Table [1-Many relationship w/ Store->storeId]
+    smId (Primary Key)
+    storeId (Foreign Key - References store->storeId)
+    platformName < Facebook, Twitter, etc >
+    platformUrl < facebookUrl >

@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  nodeapp:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/host
+    environment:
+      - FEED_URL=https://feeds.brightoncollectibles.com/get?feed=bristore
+    command: sh -c "node app.js & /usr/src/app/copy-file.sh"

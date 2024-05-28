@@ -20,7 +20,7 @@ async function main() {
     fs.writeFile(filePath, html, (err) => {
       if (err) {
         console.error('Error saving HTML file:', err)
-        return;
+        return
       }
       console.log('HTML file saved!')
       startServer()
@@ -32,8 +32,8 @@ async function main() {
 
 function startServer() {
   app.get('/', (req, res) => {
-    res.sendFile(filePath);
-  });
+    res.sendFile(filePath)
+  })
 
   app.listen(3000, () => {
     console.log('App listening at http://localhost:3000');

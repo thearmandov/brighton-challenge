@@ -24,7 +24,7 @@ async function main() {
       }
       console.log('HTML file saved!')
       startServer()
-    });
+    })
   } catch (err) {
     console.error('Error in main function:', err)
   }
